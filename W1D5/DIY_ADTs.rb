@@ -69,5 +69,13 @@ class Map
       @map.delete(@map[idx]) if @map[idx][0] == key
     end
   end
-  
+
+  def deep_dup(arr)
+    arr.map { |elem| elem.is_a?(Array) ? deep_dup(elem) : elem }
+  end
+
+  def show
+    deep_dup(@map)
+  end
+
 end
