@@ -1,3 +1,5 @@
+require 'byebug'
+
 class Stack
 
   def initialize
@@ -36,4 +38,36 @@ class Queue
     @queue.dup
   end
 
+end
+
+class Map
+
+  def initialize
+    @map = []
+  end
+
+  def assign(key, value)
+    if lookup(key) == nil
+      @map << [key, value]
+    else
+      @map.each_index do |idx|
+        @map[idx] = [key, value] if @map[idx][0] == key
+      end
+    end
+  end
+
+  def lookup(key)
+    value = nil
+    @map.each_index do |idx|
+      value = @map[idx][1] if @map[idx][0] == key
+    end
+    value
+  end
+
+  def remove(key)
+    @map.each_index do |idx|
+      @map.delete(@map[idx]) if @map[idx][0] == key
+    end
+  end
+  
 end
