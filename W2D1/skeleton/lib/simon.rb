@@ -4,7 +4,9 @@ class Simon
   attr_accessor :sequence_length, :game_over, :seq
 
   def initialize
-
+    @sequence_length = 1
+    @game_over = false
+    @seq = []
   end
 
   def play
@@ -32,7 +34,7 @@ class Simon
   end
 
   def game_over_message
-
+    puts "Game over! You have made it #{@sequence_length - 1} rounds"
   end
 
   def reset_game
