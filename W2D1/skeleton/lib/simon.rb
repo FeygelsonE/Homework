@@ -14,11 +14,17 @@ class Simon
   end
 
   def take_turn
-
+    
   end
 
   def show_sequence
-
+    self.add_random_color
+    @seq.each do |color|
+      puts color
+      sleep 0.75
+      system("clear")
+      sleep 0.25
+    end
   end
 
   def require_sequence
@@ -26,11 +32,11 @@ class Simon
   end
 
   def add_random_color
-
+    @seq << COLORS.shuffle[0]
   end
 
   def round_success_message
-
+    "Round successful. Here is the next sequence:"
   end
 
   def game_over_message
