@@ -43,14 +43,20 @@ describe Dessert do
       expect(brownie.ingredients).to eq(ingredients)
       brownie.mix!
       expect(brownie.ingredients.sort).to eq(ingredients.sort)
-      expect(brownie.ingredients).not_to eq(ingredients)      
+      expect(brownie.ingredients).not_to eq(ingredients)
     end
   end
 
   describe "#eat" do
-    it "subtracts an amount from the quantity"
+    it "subtracts an amount from the quantity" do
+      brownie.eat(5)
+      expect(brownie.quantity).to eq(95)
 
-    it "raises an error if the amount is greater than the quantity"
+    end
+
+    it "raises an error if the amount is greater than the quantity" do
+      expect { brownie.eat(200) }.to raise_error("not enough left!")
+    end
   end
 
   describe "#serve" do
