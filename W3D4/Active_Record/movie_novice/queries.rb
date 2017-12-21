@@ -38,7 +38,7 @@ def star_wars
   #display the id, title and year of each Star Wars movie in movies.
   # hint: use 'select' and 'where'
   Movie
-    .select(:id, :title, :year)
+    .select(:id, :title, :yr)
     .where('title LIKE \'%Star Wars%\'')
 end
 
@@ -48,7 +48,11 @@ def below_average_years
   #with the count of movies scoring under 5 aliased as bad_movies,
   #in descending order
   # hint: use 'select', 'where', 'group', 'order'
-
+  Movie
+    .select('yr', 'COUNT(*) as bad_movies')
+    .where('score < 5')
+    .group('yr')
+    .order('bad_movies DESC')
 end
 
 def alphabetized_actors
@@ -57,7 +61,9 @@ def alphabetized_actors
   # Note: Ubuntu users may find that special characters
   # are alphabetized differently than the specs.
   # This spec might fail for Ubuntu users. It's ok!
-
+  Actor
+    .order('name ASC')
+    .limit(10)
 end
 
 def pulp_fiction_actors
