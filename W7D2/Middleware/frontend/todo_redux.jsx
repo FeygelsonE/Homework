@@ -13,7 +13,15 @@ document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(<Root store={store} />, root);
 });
 
-
+// const addLoggingToDispatch = (store) => {
+//   const StoreDispatch = store.dispacth;
+//   return (action) => {
+//     console.log(store.getState());
+//     console.log(action);
+//     StoreDispatch(action);
+//     console.log(store.getState());
+//   }
+// }
 // const addLoggingToDispatch = (store) => {
 //   const StoreDispatch = store.dispatch;
 //   return (action) => {
